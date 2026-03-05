@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void brute_force_solution() {
+  int n;
+  cin >> n;
+  if (n == 1) {
+    cout << 1;
+    return 0;
+  }
+  vector<pair<int, int>> arr;
+  for (int i = 0; i < n; i++) {
+    int x, y;
+    cin >> x >> y;
+    arr.push_back({x, y});
+  }
+  sort(arr.begin(), arr.end(),
+       [](pair<int, int> a, pair<int, int> b) { return a.second < b.second; });
+
+  int ans = 0;
+
+  for (int i = 0; i < n; i++) {
+    int count = 1, temp = arr[i].second;
+    for (int j = i + 1; j < n; j++) {
+      if (arr[j].first >= temp) {
+        temp = arr[j].second;
+        count++;
+      }
+    }
+    ans = max(ans, count);
+  }
+  cout << ans;
+}
+
+int main() {
+  // for (auto i : arr) {
+  //   cout << i.first << " " << i.second << endl;
+  // }
+  return 0;
+}

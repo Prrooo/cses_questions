@@ -1,8 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
-  int n;
-  cin >> n;
-  cout << n;
+  string temp = "";
+  cout << temp.max_size();
   return 0;
 }
